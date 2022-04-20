@@ -2,13 +2,21 @@ import 'package:batch/batch.dart';
 import 'package:dart_twitter_api/twitter_api.dart';
 
 void main(List<String> args) => BatchApplication()
-  ..addJob(Job(
-    name: 'Auto Like Tweet Job',
-    schedule: CronParser(value: '0 */1 * * *'), // Will be executed hourly
-  )..nextStep(
-      Step(name: 'Auto Like Tweet Step')..registerTask(AutoLikeTweetTask()),
-    ))
+  ..nextSchedule(AutoLikeTweetJob())
   ..run();
+
+class AutoLikeTweetJob implements ScheduledJobBuilder {
+  @override
+  ScheduledJob build() => ScheduledJob(
+        name: 'Auto Like Tweet Job',
+        schedule: CronParser('* */1 * * *'), // Will be executed hourly
+      )..nextStep(
+          Step(
+            name: 'Auto Like Tweet Step',
+            task: AutoLikeTweetTask(),
+          ),
+        );
+}
 
 class AutoLikeTweetTask extends Task<AutoLikeTweetTask> {
   @override
