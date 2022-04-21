@@ -7,7 +7,7 @@ environment:
   sdk: '>=2.16.2 <3.0.0'
 
 dependencies:
-  batch: ^1.0.0
+  batch: ^1.2.0
   dart_twitter_api: ^0.5.6+1
 
 dev_dependencies:
