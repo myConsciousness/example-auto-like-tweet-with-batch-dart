@@ -2,7 +2,7 @@ import 'package:batch/batch.dart';
 import 'package:twitter_api_v2/twitter_api_v2.dart';
 
 /// Run this application with command:
-/// `dart run bin/tweet_auto_liker_with_args.dart -k YOUR_CONSUMER_KEY -c YOUR_CONSUMER_SECRET -t YOUR_TOKEN -s YOUR_SECRET`
+/// `dart run bin/tweet_auto_liker_with_args.dart -b YOUR_BEARER_TOKEN -k YOUR_CONSUMER_KEY -c YOUR_CONSUMER_SECRET -t YOUR_TOKEN -s YOUR_SECRET`
 void main(List<String> args) => BatchApplication(
       args: args,
       argsConfigBuilder: (parser) => parser
